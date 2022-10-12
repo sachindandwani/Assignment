@@ -1,0 +1,74 @@
+DBMS : database management system
+RDBMS : Relational managemeny system
+SQL : Strctured Query Language
+1. DDL : create,alter,truncate,drop
+2. DML : insert,update,delete
+3. TCL : Commit,Rollback
+4. DQL : Select
+
+Tools : MYSQl database,Apache server
+XAMPP : cross platform,apache server,mysql database,PHP/Pearl/python language
+
+constraints/keys:
+1. Primary key : always int,never allow null values,uniquly identify
+2. unique key:same as primary key, accept null values
+3. Foreign key : duplicate key
+
+SQL Aggrigate Functions : 
+1. MIN()
+2. MAX()
+3. AVG()
+4. COUNT()
+5. SUM()
+
+*OrderBy : used to arrenge data in Acsending and decensing Order.
+
+1). CREATE DATABASE 21sep_PHP
+2). CREATE TABLE customer(cust_id int PRIMARY KEY AUTO_INCREMENT,
+name varchar(50),password varchar(50))
+3). ALTER TABLE customer ADD (email varchar(50),phone int)
+4). ALTER TABLE customer MODIFY phone varchar(50)
+5). INSERT INTO customer (name,password,email,phone) VALUES 
+('demo',123243,'demo@gmail.com',0123456789)
+6). UPDATE customer SET name="john",password="john123",email="john@gmail.com"
+,phone=123859 WHERE cust_id =1
+7).DELETE from customer WHERE cust_id = 2
+8).DELETE FROM customer WHERE cust_id = 3;
+COMMIT
+9).DELETE FROM customer WHERE cust_id = 3;
+ROLLBACK
+10). DELETE from customer
+11). TRUNCATE TABLE customer
+12). drop TABLE customer
+13). SELECT * from customer
+14). SELECT * from customer WHERE cust_id = 2
+15). SELECT name,password FROM customer
+16). SELECT name,password FROM customer WHERE cust_id = 1
+17). SELECT MAX(salary)as Max_salary FROM customer;
+18). SELECT MIN(salary)as Min_salary FROM customer;
+19). SELECT AVG(salary)as Avg_salary FROM customer;
+20). SELECT SUM(salary)as salary FROM customer;
+21). SELECT COUNT(salary)as Total FROM customer;
+22). SELECT * from customer ORDER by name
+23). SELECT * from customer ORDER by name DESC
+24). CREATE TABLE country(cid int  AUTO_INCREMENT PRIMARY KEY,cname varchar(50))
+24). CREATE TABLE emp(emp_id int AUTO_INCREMENT,name varchar(50),
+email varchar(50),country int,PRIMARY key(emp_id),FOREIGN KEY(country) 
+REFERENCES country(cid))
+25). SELECT * FROM emp JOIN country on emp.country = country.cid
+26). SELECT emp.name,email,country.cname from emp JOIN country on 
+emp.country = country.cid
+27). SELECT emp.*,country.cname FROM emp JOIN country ON emp.country
+ = country.cid;
+28). SELECT * from emp LEFT JOIN country on emp.country = country.cid
+29). SELECT * from emp RIGHT JOIN country on emp.country = country.cid;
+30). CREATE INDEX myindex on emp(name)
+31). show index from emp
+32). CREATE VIEW myview as SELECT email from emp
+33). DELIMITER //
+CREATE PROCEDURE new_pro()
+ BEGIN
+ SELECT * FROM emp;
+ END //
+DELIMITER ;
+34). 
